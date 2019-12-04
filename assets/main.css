@@ -1,0 +1,175 @@
+@font-face {
+  font-family: Kitab;
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url(https://fonts.nuqayah.com/kitab.woff2) format('woff2'),
+       url(https://fonts.nuqayah.com/kitab.woff) format('woff');
+}
+@font-face {
+  font-family: Kitab;
+  font-style: normal;
+  font-display: block;
+  font-weight: 700;
+  src: url(https://fonts.nuqayah.com/kitab-b.woff2) format('woff2'),
+       url(https://fonts.nuqayah.com/kitab-b.woff) format('woff');
+}
+
+html {font-size: 22px;}
+@media (max-width: 992px) { html {font-size: 21px;} }
+@media (max-width: 768px) { html {font-size: 18.5px;} }
+@media (max-width: 576px) { html {font-size: 17px;} }
+
+/* General */
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overscroll-behavior-y: contain;
+  margin: 0 auto;
+  padding: 0 7px;
+  color: #444444;
+  max-width: 600px;
+  font-family: Kitab;
+  direction: rtl;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+h2 {
+  margin-top: 1rem;
+}
+
+input, textarea, button {
+  font-size: inherit;
+  font-family: inherit;
+}
+button {
+  padding: 0.35rem 0.6rem;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+  display: inline-block;
+  color: #000;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  font-size: 24px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+/* Checkmarks */
+input[type="checkbox"] {
+  display: none;
+}
+.check-lbl {
+  cursor: pointer;
+  display: block;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+input[type="checkbox"] + span {
+  position: relative;
+  padding-right: 28px;
+  padding-left: 30px; /* Checkbox offset */
+  display: inline-block;
+}
+input[type="checkbox"] + span:before {
+  content: "";
+  position: absolute;
+  border: 4px solid #555;
+  top: 5px;
+  right: 0;
+  width: 23px;
+  height: 23px;
+  transition: border 200ms ease-out;
+}
+input[type="checkbox"]:checked + span:before {
+  border: 4px solid #22b573;
+}
+input[type="checkbox"]:checked + span:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  background-color: #22b573;
+}
+
+/* Tip */
+#tip {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+#tip p {
+  color: #fff;
+  border-radius: 3px;
+  background-color: #1a1a1a;
+  display: inline-block;
+  padding: 9px 10px 6px;
+  margin: 0;
+}
+#tip.active {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+/* Collapse */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Copy Text Container */
+#copy-text {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#tab-cont {
+  height: calc(100vh - 72px);
+}
+
+hr {
+  width: 50%;
+  border-top: 1px #999;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 20px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}

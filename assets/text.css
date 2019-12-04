@@ -1,0 +1,106 @@
+#clean textarea {
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.3rem 0.2rem;
+  height: 8rem;
+  border: 0;
+  box-shadow: 0px 0px 3px 1px #bbb;
+}
+
+/* Buttons */
+#clean-btns {
+  display: flex;
+}
+.round-btn {
+  box-shadow: 0px 0px 6px 0 #999;
+  border-radius: 1rem;
+  padding: 5px 0.7rem;
+  transition: background 0.2s;
+}
+#clean-btn {
+  margin-left: 0.4rem;
+  background: #3eda94;
+}
+#clean-ops-btn {
+  align-self: flex-end;
+  margin-right: auto
+}
+#clean-ops-btn.active {
+  background-color: #3eda94;
+}
+
+/* Text actions button and menu */
+#text-actions-btn {
+  width: 5rem;
+  margin: 0 5px 0 13px;
+}
+#text-actions-btn:focus {
+  background-color: #3eda94;
+}
+#text-actions-cont {
+  position: relative;
+}
+#text-actions-menu {
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  transform: translateY(4px);
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 0.3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  box-shadow: 0 0 5px #aaa;
+}
+#text-actions-menu li:hover {
+  background: #fafafa;
+}
+#text-actions-menu li:not(:first-child) {
+  border-top: solid 1px #f0f0f0;
+}
+#text-actions-menu button {
+  width: 100%;
+}
+
+/* Checkmarks */
+#clean-ops > section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.check-lbl {
+  flex: 1 50%;
+}
+#clean-ops > section > h2 {
+  flex-basis: 100%;
+}
+.arrow {
+  transform: scale(-1, 1);
+  display: inline-block;
+  font-size: 0.6rem;
+  color: darkgrey;
+}
+
+/* Copy */
+#copy-chars button {
+  background: #3eda94;
+  box-shadow: 1px 0px 4px #666;
+  margin: 3px;
+  border-radius: 1rem;
+  color: #333;
+  min-width: 2rem;
+  transition: background 0.1s;
+}
+#copy-chars button:active {
+  background: #9af9ce;
+}
+
+/* Missing */
+#copy-chars .missing button {
+  background-color: #eee;
+}
+.missing button .icon {
+  font-size: 1.5rem;
+}

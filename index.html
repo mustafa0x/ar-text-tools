@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="assets/text.css">
+<title>أدوات نصية</title>
+
+<main>
+  <section id="clean">
+    <h2>تحسين النص</h2>
+    <textarea dir="auto"></textarea>
+    <div id="clean-btns">
+      <button class="round-btn" id="clean-btn">تحسين</button>
+      <div id="text-actions-cont">
+        <button class="round-btn" id="text-actions-btn">أخرى</button>
+        <ul id="text-actions-menu" hidden></ul>
+      </div>
+      <button class="round-btn" id="undo-btn" disabled><svg class="icon icon-type"><use xlink:href="assets/icons.svg#undo"></use></svg></button>
+      <button class="round-btn" id="clean-ops-btn" data-collapse="clean-ops"><svg class="icon icon-type"><use xlink:href="assets/icons.svg#settings"></use></svg> خيارات</button>
+    </div>
+
+    <section id="text-actions"></section>
+    <section id="clean-ops" class="collapse"></section>
+  </section>
+
+  <br><hr>
+  <section id="copy-chars">
+    <h2>للاقتباس</h2>
+  </section>
+  <footer>
+    من مشاريع <a href="https://nuqayah.com" target="_blank">نُقاية</a>
+  </footer>
+</main>
+
+<div id="tip"><p></p></div>
+<div id="copy-text"></div>
+<script src="assets/repls.js" type="module"></script>
+<script src="assets/text.js" type="module"></script>
