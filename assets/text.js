@@ -123,6 +123,7 @@ t_area.on('paste', e => {
 // Copy section
 const copy_items = {
     رموز: '﷽,ﷺ,ﷻ,۝,۞'.split(','),
+    'رموز (اعتمدت حديثًا)': '\uFDFE,\uFDFF,\uFD40,\uFD41,\uFD42,\uFD43,\uFD44,\uFD45,\uFD47,\uFD4D,\uFD48,\uFD49'.split(','),
     تنسيق: '﴿﴾,«»,‹›,”“,’‘,•,✽'.split(','),
     تواريخ: [
         Intl.DateTimeFormat('ar-SA', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}).format(),
