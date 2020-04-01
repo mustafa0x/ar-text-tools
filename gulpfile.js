@@ -45,6 +45,7 @@ function prep_css() {
 function combine(cb) {
     const icons = r('assets/icons.svg').replace(/id="/g, 'id="icon-').replace(/\n +/g, '');
     let pg = r('index.html');
+    pg = pg.replace('assets/icon.png', 'data:image/png;base64,' + fs.readFileSync('icon.png', 'base64'));
     pg = pg.replace(/\n<link rel="stylesheet"[\s\S]+\.css">/, () => `<style>${r('dist/style.min.css')}</style>`);
     pg = pg.replace(/\n<script src[\s\S]*<\/script>/, () => `<script>${r('dist/js.min.js')}</script>`);
     pg = pg.replace(/>\n */g, '> ');
