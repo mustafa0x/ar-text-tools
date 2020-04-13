@@ -1,4 +1,5 @@
 {
+    "name": "ar-text-tools",
     "devDependencies": {
         "autoprefixer": "^9.7.5",
         "css-mqpacker": "^7.0.0",
