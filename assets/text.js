@@ -62,11 +62,12 @@ function select_and_copy() {
 }
 
 // TODO: replace with map
-$('#clean-ops').innerHTML = repls.map((grp, repl_i) => {
+let repl_i = 0;
+$('#clean-ops').innerHTML = repls.map(grp => {
     const items = grp[1].map(x => {
         const chk = x[2] === 0 ? '' : 'checked';
         return `<label class="check-lbl">
-            <input type="checkbox" data-id="${repl_i}" ${chk}><span>${flip_arrow(x[0])}</span>
+            <input type="checkbox" data-id="${repl_i++}" ${chk}><span>${flip_arrow(x[0])}</span>
         </label>`;
     }).join('\n');
     return `<section><h2>${grp[0]}</h2>${items}</section>`;
