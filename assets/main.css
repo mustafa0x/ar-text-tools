@@ -1,16 +1,22 @@
 @font-face {
   font-family: Kitab;
-  font-style: normal;
   font-display: block;
-  font-weight: 400;
-  src: url(https://fonts.nuqayah.com/kitab.woff2) format('woff2');
+  src: url(https://fonts.nuqayah.com/kitab-base.woff2?v1);
 }
 @font-face {
   font-family: Kitab;
-  font-style: normal;
   font-display: block;
+  src: url(https://fonts.nuqayah.com/kitab-base-b.woff2?v1);
   font-weight: 700;
-  src: url(https://fonts.nuqayah.com/kitab-b.woff2) format('woff2');
+}
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v1);
+}
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v1);
+  font-weight: 700;
 }
 
 html {font-size: 22px;}

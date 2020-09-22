@@ -61,7 +61,6 @@ function select_and_copy() {
     tip('حُسّن النص ونُسخ');
 }
 
-// TODO: replace with map
 let repl_i = 0;
 $('#clean-ops').innerHTML = repls.map(grp => {
     const items = grp[1].map(x => {
