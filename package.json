@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "cssnano": "^5.1.0",
-    "glob": "^7.2.0",
-    "postcss": "^8.4.7",
-    "terser": "^5.12.0"
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.10",
+    "glob": "^8.0.3",
+    "postcss": "^8.4.14",
+    "terser": "^5.14.0"
   },
   "scripts": {
     "build": "rm -rf dist && mkdir dist && node build.js"
