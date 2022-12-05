@@ -1,0 +1,300 @@
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-base.woff2?v3);
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3, U+FD3E-FD3F;
+}
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-base-b.woff2?v3);
+  font-weight: 700;
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3, U+FD3E-FD3F;
+}
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  unicode-range:  U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2, U+FDFA-FDFB, U+FDFD-FDFF;
+}
+@font-face {
+  font-family: Kitab;
+  font-weight: 700;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  unicode-range:  U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2, U+FDFA-FDFB, U+FDFD-FDFF;
+}
+
+
+:root {
+  --dark-blue: #216693;
+  --light-blue: #2995dc;
+}
+
+html {font-size: 22px;}
+@media (max-width: 992px) { html {font-size: 21px;} }
+@media (max-width: 768px) { html {font-size: 18.5px;} }
+@media (max-width: 576px) { html {font-size: 17px;} }
+
+body {
+  color: #444;
+  direction: rtl;
+  overscroll-behavior-y: contain;
+}
+html.safari body {
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+}
+
+a, a:visited, .btn-link {
+  color: var(--light-blue);
+}
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.full-height {
+  height: calc(100vh - var(--top-offset, 0px));
+  overflow: auto;
+}
+
+/* Buttons and inputs */
+.btn {
+  border: 1px solid #aaa;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  margin: 0 2px;
+  background-image: linear-gradient(to bottom, #fafbfc, #e9eced 90%);
+  font-size: 0.8rem;
+}
+.btn.active {
+  background-image: linear-gradient(to top, #fafbfc, #e9eced 90%);
+}
+.btn[disabled] {
+  cursor: not-allowed;
+  color:  #aaa;
+}
+html.safari button:active {
+  color: inherit;
+}
+html.user-is-tabbing button {
+  outline: revert;
+}
+label {
+  cursor: pointer;
+}
+input, textarea {
+  padding: 0.2rem 0.3rem;
+  border-radius: 3px;
+  margin-bottom: 0.2rem;
+  border: 1px solid #aaa;
+}
+form input, form textarea {
+  display: block;
+  width: 100%;
+}
+input:focus, textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: 0 0 6px #77777761;
+}
+html.ios input, html.ios select, html.ios textarea {
+  font-size: 16px !important;
+}
+input[type=email], input[type=number], input[type=password] {
+  direction: ltr;
+}
+::placeholder {
+  color: #bbb;
+}
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  --pos: right;
+  background-position: var(--pos) 0.25rem center;
+  background-size: 16px 12px;
+}
+html:lang(ar) .form-select {
+  --pos: left;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.icon {
+  display: inline-block;
+  color: #444;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  vertical-align: middle;
+  color: inherit;
+  pointer-events: none;
+}
+
+mark {
+  color: red;
+  font-weight: bold;
+  background: none;
+}
+
+/* Expand btn */
+.expand-btn {
+  padding: 0rem 0.8rem 0 0.5rem;
+}
+.expand-btn > svg {
+  transition: transform 200ms;
+}
+.expand-btn.expanded > svg {
+  transform: rotate(180deg);
+}
+
+.no-results {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #999;
+}
+
+/* Popover */
+.popover {
+  background: #fbfbfb;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px #ccc;
+  padding: 0.2rem 0.2rem;
+  margin-top: 0.1rem;
+  font-size: 0.9rem;
+}
+.popover-menu {
+  min-width: 6rem;
+}
+.popover-menu :is(button, a) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.15rem 0.3rem;
+  border-radius: 0;
+}
+.popover-menu :is(button:hover, a:hover) {
+  background: #eee;
+}
+.popover-menu-checkboxes :is(button, a) {
+  max-width: 15rem;
+  width: 100%;
+  padding: 0.15rem 0.3rem;
+  text-align: left;
+}
+.popover-menu-checkboxes :is(button:hover, a:hover) {
+  background: #eee;
+}
+
+/**/
+/**/
+/**/
+/**/
+
+h2 {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.35rem 0.6rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+/* Checkmarks */
+input[type="checkbox"] {
+  display: none;
+}
+.check-lbl {
+  cursor: pointer;
+  display: block;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+input[type="checkbox"] + span {
+  position: relative;
+  padding-right: 28px;
+  padding-left: 30px; /* Checkbox offset */
+  display: inline-block;
+}
+input[type="checkbox"] + span:before {
+  content: "";
+  position: absolute;
+  border: 4px solid #555;
+  top: 5px;
+  right: 0;
+  width: 23px;
+  height: 23px;
+  transition: border 200ms ease-out;
+}
+input[type="checkbox"]:checked + span:before {
+  border: 4px solid #22b573;
+}
+input[type="checkbox"]:checked + span:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  background-color: #22b573;
+}
+
+/* Tip */
+#tip {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+#tip p {
+  color: #fff;
+  border-radius: 3px;
+  background-color: #1a1a1a;
+  display: inline-block;
+  padding: 9px 10px 6px;
+  margin: 0;
+}
+#tip.active {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+/* Collapse */
+.collapse1 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#tab-cont {
+  height: calc(100vh - 72px);
+}
+
+hr {
+  width: 50%;
+  border-top: 1px #999;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 20px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-select {
+    @apply appearance-none
+      px-2
+      pe-5
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      bg-no-repeat
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+}
