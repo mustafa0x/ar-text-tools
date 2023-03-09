@@ -5,26 +5,26 @@ ar_digits = {ord(str(k)):v for k,v in enumerate(list('٠١٢٣٤٥٦٧٨٩'))}
 en_digits = {ord(v): str(i) for i, v in enumerate('٠١٢٣٤٥٦٧٨٩')}
 
 harakat_prep = lambda s: regex.sub(r'([ءأؤإئبةتثجحخدذرزسشصضطظعغفقكلمنهوىي])', r'\1[ً-ْ]*', s)
-prep_honorific = lambda s: r'\b([(ـ-] ?)?%s( ?[-ـ)])?\b' % harakat_prep(s)
+prep_honorific = lambda s: r'(\b| )([(ـ-] ?)?%s( ?[-ـ)])?(\b| )' % harakat_prep(s)
 honorifics = [
     ('صلى الله عليه وسلم', 'ﷺ'),
     ('جل جلاله', 'ﷻ'),
-    ('رحمه الله', '\uFD40'), # ﵀
-    ('رحمهم الله', '\uFD4F'), # ﵏
-    ('عز وجل', '\uFDFF'), # ﷿
-    ('عليه الصلاة والسلام', '\uFD4A'), # ﵊
-    ('رضي الله عنهما', '\uFD44'), # ﵄
-    ('رضي الله عنهم(?! ورضوا)', '\uFD43'), # ﵃
-    ('رضي الله عنهن', '\uFD45'), # ﵅
-    ('رضي الله عنها', '\uFD42'), # ﵂
-    ('رضي الله عنه', '\uFD41'), # ﵁
-    ('سبحانه وتعالى(?! عما)', '\uFDFE'), # ﷾
-    ('تبارك وتعالى', '\uFD4E'), # ﵎
-    ('عليه السلام', '\uFD47'), # ﵇
-    ('عليها السلام', '\uFD4D'), # ﵍
-    ('عليهم السلام', '\uFD48'), # ﵈
-    ('عليهما السلام', '\uFD49'), # ﵉
-    ('صلى الله عليه وآله وسلم', '\uFD4C'), # ﵌
+    ('رحمه الله(?! تعالى)', '﵀'),
+    ('رحمهم الله(?! تعالى)', '﵏'),
+    ('عز وجل', '﷿'),
+    ('عليه الصلاة والسلام', '﵊'),
+    ('رضي الله عنهما', '﵄'),
+    ('رضي الله عنهم(?! ورضوا)', '﵃'),
+    ('رضي الله عنهن', '﵅'),
+    ('رضي الله عنها', '﵂'),
+    ('رضي الله عنه', '﵁'),
+    ('سبحانه وتعالى(?! عما)', '﷾'),
+    ('تبارك وتعالى', '﵎'),
+    ('عليه السلام', '﵇'),
+    ('عليها السلام', '﵍'),
+    ('عليهم السلام', '﵈'),
+    ('عليهما السلام', '﵉'),
+    ('صلى الله عليه وآله وسلم', '﵌'),
 ]
 honorifics = [(1, prep_honorific(a), b) for a, b in honorifics]
 
@@ -42,7 +42,7 @@ arabic_repls = honorifics + [
     (1, '|'.join([h + h for h in harakaat]), lambda m: m.group(0)[0]),
 
     # Remove harakaat from لفظ الجلالة
-    (1, r'\b([وفبتُِ]*ا?)?لل[َّ]+ه([َُِ]?)\b', r'\1لله\2'),
+    (1, r'\b([وفبتَِ]*ا?)?لل[َّ]+(ه[َُِ]?)\b', r'\1لل\2'),
 
     # Arabic punctuation
     (0, ';', '؛'),
@@ -124,7 +124,7 @@ def apply_repls_remove_ayahs(text, repls=arabic_repls):
     def remove_ayahs(m):
         ayahs.append(m.group(1))
         return '﴿ayah﴾'
-    text = regex.sub(r'﴿(.*?)﴾', remove_ayahs, text)
+    text = regex.sub(r'[{﴿](.*?)[﴾}]', remove_ayahs, text)
     for r in repls:
         text = regex.sub(r[1], r[2], text) if r[0] else text.replace(r[1], r[2])
     text = regex.sub(r'﴿ayah﴾', lambda m: '﴿%s﴾' % ayahs.pop(0), text)
