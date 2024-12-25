@@ -42,7 +42,7 @@ arabic_repls = honorifics + [
     (1, '|'.join([h + h for h in harakaat]), lambda m: m.group(0)[0]),
 
     # Remove harakaat from لفظ الجلالة
-    (1, r'\b([وفبتَِ]*ا?)?لل[َّ]+(ه[َُِ]?)\b', r'\1لل\2'),
+    (1, r'\b(([وفبتَِ]*ا?)?لِ?ل)[َّ]+(?=ه[َُِ]?)\b', r'\1'),
 
     # Arabic punctuation
     (0, ';', '؛'),
@@ -53,7 +53,7 @@ arabic_repls = honorifics + [
     (1, r' [ـ_] ', ' - '),
 
     # trailing spaces
-    (1, r'[ \t]+\n', '\n'),
+    (1, r'(?m)[ \t]+$', ''),
 
     (1, r'\(\(([\s\S]*?)\)\)', r'«\1»'),
     (1, r'"(.*?)"', r'«\1»'),
