@@ -26,7 +26,7 @@ honorifics = [
     ('عليهما السلام', '﵉'),
     ('صلى الله عليه وآله وسلم', '﵌'),
 ]
-honorifics = [(1, prep_honorific(a), b) for a, b in honorifics]
+honorifics = [(1, prep_honorific(a), fr'\1{b}\4') for a, b in honorifics]
 
 harakaat = 'ًٌٍَُِّ'
 arabic_repls = honorifics + [
