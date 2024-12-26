@@ -36,7 +36,7 @@ arabic_repls = honorifics + [
 
     # ١٢٣ه, (ت: ٢٠٠)
     (1, r'([٠-٩]+) ?هـ?([ .]|$)', r'\1 هـ\2'),
-    (1, r'\(ت:? ?([٠-٩]+)\)', r'(ت \1)'),
+    (1, r'\(ت:? ?(\d+)\)', r'(ت \1)'),
 
     # Duplicate harakaat
     (1, '|'.join([h + h for h in harakaat]), lambda m: m.group(0)[0]),
