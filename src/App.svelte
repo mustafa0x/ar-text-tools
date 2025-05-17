@@ -60,7 +60,7 @@
 <script>
 import Popover from 'components/src/Popover.svelte'
 import Tabs from 'components/src/Tabs.svelte'
-import Unichar from '~/unichar/App.svelte'
+import Unichar from '~/unichar/Unichar.svelte'
 
 let current_tab = 1
 

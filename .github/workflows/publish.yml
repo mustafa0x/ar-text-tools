@@ -1,0 +1,11 @@
+name: Publish Package to GitHub Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: nuqayah/gh-actions/.github/workflows/npm_publish.yaml@main

@@ -1,4 +1,9 @@
 {
+  "name": "@nuqayah/ar-text-tools",
+  "version": "1.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "autoprefixer": "^10.4.16",

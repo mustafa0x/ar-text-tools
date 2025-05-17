@@ -12,7 +12,7 @@ const min_css = async s => (await postcss([pseudo_is, autoprefixer, cssnano(cssn
 const apply_repls = (s, repls) => repls.reduce((a, b) => a[b[2] ? 'replaceAll' : 'replace'](b[0], b[1]), s)
 
 const polyfills = ['Object.fromEntries', 'Intl.RelativeTimeFormat.~locale.ar']
-const pf_url = `document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=${polyfills.join(',')}"><\\/script>')`
+const pf_url = `document.write('<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=${polyfills.join(',')}"><\\/script>')`
 const pf_script = `((${polyfills.map(pf => pf.replace(/\.~.*/, '')).join(' && ')}) || ${pf_url})`
 
 async function main() {
@@ -30,7 +30,7 @@ async function main() {
 
     // Combine
     const pg = apply_repls(r('index.html'), [
-        ['assets/icon.png', 'data:image/png;base64,' + fs.readFileSync('icon.png', 'base64')],
+        // ['assets/icon.png', 'data:image/png;base64,' + fs.readFileSync('icon.png', 'base64')],
         [/>\n+ */g, '>'],
         [/&#32;/g, ' '],
         [/<!-- styles -->/, () => `<style>${css}</style>`],
